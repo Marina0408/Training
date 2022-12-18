@@ -1,0 +1,342 @@
+* {
+box-sizing: border-box;
+}
+
+body {
+font-family: 'Roboto', sans-serif;
+color: black;
+}
+
+ul, li, a {
+text-decoration: none;
+list-style: none;
+}
+
+/* -- ----------------Выпадающее меню---------------- --> */
+
+.menu {
+padding: 0;
+margin: 0;
+list-style: none;
+display: flex;
+}
+
+.menu-item {
+margin-right: 15px;
+position: relative;
+}
+
+.menu-item:hover .submenu {
+display: block;
+}
+
+.menu-link {
+display: block;
+padding: 10px 20px;
+text-decoration: none;
+background-color: teal;
+color: black;
+}
+
+.submenu {
+position: absolute;
+left: 0;
+top: 100%;
+width: 100%;
+padding: 10px;
+margin: 0;
+list-style: none;
+display: none;
+background-color: lightgreen;
+}
+
+.submenu-item {
+padding: 10px;
+}
+
+/* ----------------кнопка анимация----------- */
+
+.btn {
+position: relative;
+
+display: inline-flex;
+margin: 0;
+border: none;
+cursor: pointer;
+background-color: cadetblue;
+padding: 10px 20px;
+border-radius: 4px;
+align-items: center;
+transition: background-color 250ms cubic-bezier(0.4, 0, 0.2, 1) 200ms;
+overflow: hidden;
+}
+
+.btn:hover,
+.btn:focus {
+background-color: coral;
+color: beige;
+}
+
+/* ------------Кнопка с иконкой уезжающей вверх и вниз-------------------- */
+
+.btn::before {
+content: "";
+display: inline-block;
+width: 20px;
+height: 20px;
+margin-right: 10px;
+/* background-color: blue; */
+transition: transform 250ms cubic-bezier(0.4, 0, 0.2, 1);
+background-image: url(../images/clock.svg);
+background-size: contain;
+}
+
+.btn:hover::before,
+.btn:focus::before {
+transform: translateY(-35px);
+}
+
+.btn::after {
+position: absolute;
+content: "";
+top: 50%;
+left: 20px;
+display: inline-block;
+width: 20px;
+height: 20px;
+/* background-color: black; */
+transform: translateY(calc(-50% + 35px));
+transition: transform 250ms cubic-bezier(0.4, 0, 0.2, 1);
+background-image: url(../images/antenna.svg);
+background-size: contain;
+}
+
+/* -------При ховере блэк чтоб поднялся на блу------------- */
+
+.btn:hover::after,
+.btn:focus::after {
+transform: translateY(-50%);
+}
+
+/* ------------Подчеркивание---------- */
+
+.menutwo {
+margin: 0;
+padding: 0;
+list-style: none;
+display: flex;
+}
+
+.menu-itemtwo {
+margin-right: 20px;
+}
+
+.menu-linktwo {
+position: relative;
+display: block;
+padding: 10px 20px;
+text-decoration: none;
+color: black;
+background-color: beige;
+}
+
+/* .menu-linktwo::after {
+content: "";
+position: absolute;
+bottom: 0;
+left: 0; */
+/* display: block; */
+/* width: 100%;
+height: 5px;
+background-color: blue;
+opacity: 0;
+transition: opacity 250ms cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.menu-linktwo:hover::after {
+opacity: 1;
+} */
+
+/* илиииии плохая идея*/
+
+/* .menu-linktwo::after {
+content: "";
+position: absolute;
+bottom: 0;
+left: 0;
+display: block;
+width: 0%;
+height: 5px;
+background-color: blue;
+
+transition: width 250ms cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.menu-linktwo:hover::after {
+width: 100%;
+} */
+
+/* илиииии scale*/
+
+.menu-linktwo::after {
+content: "";
+position: absolute;
+bottom: 0;
+left: 0;
+display: block;
+width: 100%;
+height: 5px;
+background-color: blue;
+transform: scaleX(0);
+transition: transform 250ms cubic-bezier(0.4, 0, 0.2, 1),
+opacity 250ms cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.menu-linktwo:hover::after {
+transform: scaleX(1);
+opacity: 1;
+}
+
+/* --------------ОВЕРЛЭЙ---------- */
+
+.portfolio-list {
+display: flex;
+flex-wrap: wrap;
+margin-left: -30px;
+margin-bottom: -30px;
+padding-bottom: 94px;
+}
+
+.portfolio-item {
+/* width: calc( 100% / 3 - 30px); */
+flex-basis: calc((100% - 90px) / 3);
+margin-left: 30px;
+margin-bottom: 30px;
+border: 1px solid #EEEEEE;
+}
+
+.portfolio-item-title {
+padding-left: 24px;
+padding-right: 24px;
+margin-bottom: 4px;
+margin-top: 20px;
+font-style: normal;
+font-weight: 700; 
+font-size: 18px;
+line-height: 2;
+letter-spacing: 0.06em;
+color: var(--secondary-text-color);
+}
+
+.portfolio-item-text {
+padding-left: 24px;
+padding-right: 24px;
+padding-bottom: 20px;
+font-size: 16px;
+line-height: 1.88;
+letter-spacing: 0.03em;
+color: var(--primary-text-color);
+}
+
+.portfolio-link {
+display: block;
+}
+
+.portfolio-link:hover,
+.portfolio-link:focus {
+box-shadow: 0px 1px 1px rgba(0, 0, 0, 0.12),
+ 0px 4px 4px rgba(0, 0, 0, 0.06),
+  1px 4px 6px rgba(0, 0, 0, 0.16);
+}
+
+.product {
+overflow: hidden;
+}
+
+.product-thumb {
+position: relative;
+}
+
+.product-thumb::after {
+display: inline-block;
+content: "";
+position: absolute;
+top: 0;
+left: 0;
+transform: translateY(100%);
+width: 100%;
+height: 294px;
+background-color: rgba(33, 150, 243, 0.9);
+transition: transform 500ms cubic-bezier(0.4, 0, 0.2, 1);
+
+}
+
+.product:hover .product-thumb::after {
+transform: translateY(0);
+
+}
+
+
+/* ------- */
+
+.sceneone {
+margin: 30px;
+width: 250px;
+height: 250px;
+border: 2px solid blueviolet;
+perspective: 600px;
+}
+
+.box {
+height: 100%;
+background-color: black;
+transform: rotateY(60deg);
+transition: transform 250ms linear;
+}
+
+
+.sceneone:hover .box {
+transform: rotateY(180deg);
+}
+
+/* https://3dtransforms.desandro.com/card-flip */
+
+.scene {
+width: 400px;
+height: 600px;
+perspective: 600px;
+}
+.card {
+  width: 100%;
+  height: 100%;
+  position: relative;
+  transition: transform 1s;
+  transform-style: preserve-3d;
+}
+.card-face {
+  position: absolute;
+  height: 100%;
+  width: 100%;
+  backface-visibility: hidden;
+  color: aqua;
+  padding: auto;
+}
+.card-face-front {
+  background: red;
+}
+
+.card-face-back {
+  background: blue;
+  transform: rotateY( 180deg );
+}
+.card.is-flipped {
+  transform: rotateY(180deg);
+}
+
+.scene:hover .card {
+ transform: rotateY(180deg);
+}
+.card { transform-origin: center right; }
+.card.is-flipped {
+  transform: translateX(-100%) rotateY(-180deg);
+}
